@@ -13,11 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from todoapp.views import addTodoView, changetodoing, changetodone, changetotodo, deleteTodoView,todoappView
 from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path,include
+from django.shortcuts import render
+def index(request):
+    return render(request,"Todolist/index.html")
 
-app_name="Kanbaan"
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('todoapp/',todoappView),
+    path('addTodoItem/',addTodoView),
+    path('deleteTodoItem/<int:i>/', deleteTodoView),
+    path('changeTOTODO/<int:i>/',changetotodo),
+    path('changeTODOING/<int:i>/',changetodoing),
+    path('changeTODONE/<int:i>/',changetodone)
 ]
