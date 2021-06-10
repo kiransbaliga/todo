@@ -9,62 +9,59 @@
 <ul>
   {% for i in todo %}
   <li>
-    {{i.content}}
-    {{i.todo}}
-    {{i.doing}}
-    {{i.done}}
-      <form action="/changeTODOING/{{i.id}}/" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Doing" />
-        <form action="/changeTODONE/{{i.id}}/" method="post">
-            {% csrf_token %}
-            <input type="submit" value="Done" />
+    {{i.content}} 
+    <form action="/changeTODOING/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Doing" />
+    </form>
+    <form action="/changeTODONE/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Done" />
     </form>
     <form action="/deleteTodoItem/{{i.id}}/" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Delete" />
+      {% csrf_token %}
+      <input type="submit" value="Delete" />
+    </form>
   </li>
   {% endfor %}
 </ul>
 <h2>DOING</h2>
 <ul>
-    {% for i in doing %}
-    <li>
-      {{i.content}}
-      {{i.todo}}
-      {{i.doing}}
-      {{i.done}}
-        <form action="/changeTOTODO/{{i.id}}/" method="post">
-          {% csrf_token %}
-          <input type="submit" value="todo" />
-          <form action="/changeTODONE/{{i.id}}/" method="post">
-              {% csrf_token %}
-              <input type="submit" value="Done" />
-      </form>
-      <form action="/deleteTodoItem/{{i.id}}/" method="post">
-          {% csrf_token %}
-          <input type="submit" value="Delete" />
-    </li>
-    {% endfor %}
-  </ul>
+  {% for i in doing %}
+  <li>
+    {{i.content}} 
+    <form action="/changeTOTODO/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="todo" />
+    </form>
+    <form action="/changeTODONE/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Done" />
+    </form>
+    <form action="/deleteTodoItem/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Delete" />
+    </form>
+  </li>
+  {% endfor %}
+</ul>
 <h2>DONE</h2>
 <ul>
-    {% for i in done %}
-    <li>
-      {{i.content}}
-      {{i.todo}}
-      {{i.doing}}
-      {{i.done}}
-        <form action="/changeTOTODO/{{i.id}}/" method="post">
-          {% csrf_token %}
-          <input type="submit" value="todo" />
-          <form action="/changeTODOING/{{i.id}}/" method="post">
-              {% csrf_token %}
-              <input type="submit" value="Doing" />
-      </form>
-      <form action="/deleteTodoItem/{{i.id}}/" method="post">
-          {% csrf_token %}
-          <input type="submit" value="Delete" />
-    </li>
-    {% endfor %}
-  </ul>
+  {% for i in done %}
+  <li>
+    {{i.content}} 
+    <form action="/changeTOTODO/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="todo" />
+    </form>
+    <form action="/changeTODOING/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Doing" />
+    </form>
+    <form action="/deleteTodoItem/{{i.id}}/" method="post">
+      {% csrf_token %}
+      <input type="submit" value="Delete" />
+    </form>
+  </li>
+  {% endfor %}
+</ul>
